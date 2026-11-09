@@ -1,4 +1,4 @@
-// Package index maintains an in-memory index of all slice definitions within a
+// Package index maintains an in-memory index of all slices within a
 // chisel release directory (one that contains a `slices/` subdirectory). It
 // watches the slices directory for changes and automatically re-indexes on any
 // add/modify/delete event.
@@ -16,7 +16,7 @@ import (
 	"github.com/fsnotify/fsnotify"
 )
 
-// IndexedSlice is a slice definition plus the path to its source file.
+// IndexedSlice is a slice plus the path to its source file.
 type IndexedSlice struct {
 	File         string // absolute path to the .yaml file
 	Def          *parser.SliceDef

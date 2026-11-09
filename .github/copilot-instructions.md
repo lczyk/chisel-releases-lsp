@@ -119,7 +119,7 @@ All emitted diagnostics carry a string `Code` (constants in `util.go`):
 
 Shared by `references.go` and `rename.go`. Handles two cursor contexts:
 - Cursor on an essential ref (`- libc6_libs`) → `SliceRefFromToken` → `(pkg, slice)`
-- Cursor on a slice definition key (`libs:`) → pair bare token with `sf.Package`
+- Cursor on a slice key (`libs:`) -> pair bare token with `sf.Package`
 
 ### Adding a new LSP feature
 

@@ -118,7 +118,7 @@ func (s *Server) textDocumentRename(_ *glsp.Context, params *protocol.RenamePara
 		})
 	}
 
-	// Edit the slice definition (rename the key in the slices: map).
+	// Edit the slice entry (rename the key in the slices: map).
 	is := s.idx.LookupSlice(srcPkg, srcSlice)
 	if is != nil {
 		addEdit(filePathToURI(is.File), is.Def.NameRange, newSlice)
