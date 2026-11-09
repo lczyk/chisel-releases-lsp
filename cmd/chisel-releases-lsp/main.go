@@ -1,5 +1,5 @@
-// chisel-releases-lsp is a Language Server Protocol server for chisel slice
-// definition files. It communicates over stdio and works with any LSP-capable
+// chisel-releases-lsp is a Language Server Protocol server for chisel package
+// slices files. It communicates over stdio and works with any LSP-capable
 // editor or IDE.
 //
 // Usage:

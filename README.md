@@ -1,8 +1,8 @@
 # chisel-releases-lsp
 
-A [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) server for [chisel](https://github.com/canonical/chisel) slice definition files.
+A [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) server for [chisel](https://github.com/canonical/chisel) package slices files.
 
-`chisel-releases-lsp` is a tool-agnostic developer companion for working with [chisel-releases](https://github.com/canonical/chisel-releases). It plugs into any LSP-capable editor (Neovim, VS Code, Emacs, Helix, …) and provides real-time feedback while you write or review slice definitions.
+`chisel-releases-lsp` is a tool-agnostic developer companion for working with [chisel-releases](https://github.com/canonical/chisel-releases). It plugs into any LSP-capable editor (Neovim, VS Code, Emacs, Helix, ...) and provides real-time feedback while you write or review package slices files.
 
 ---
 
@@ -115,13 +115,13 @@ The server loads all `slices/*.yaml` files from the workspace root into an in-me
 - **Document symbols** (`Ctrl+Shift+O` in most editors) shows a package/slice outline for the current file.
 - **Workspace symbols** (`Ctrl+T` / `@` in most editors) lets you fuzzy-search any `pkg_slice` name across the entire release.
 - **Find references** (`Shift+F12` or equivalent) lists every `essential:` entry that names a given slice, across all files.
-- **Rename** (`F2`) renames a slice key in its definition file and updates every `essential:` reference across the release.
+- **Rename** (`F2`) renames a slice key in its package slices file and updates every `essential:` reference across the release.
 - **Diagnostics** are published on open, change, and save:
   - Invalid glob patterns in `contents:` paths.
   - Cross-package path collisions (two packages claiming the same concrete path). Each diagnostic includes `relatedInformation` pointing to the conflicting file so editors can navigate there directly.
   - Unknown or malformed slice references in `essential:` lists.
   - `package:` value that does not match the file's name stem (e.g. `openssl.yaml` must declare `package: openssl`).
-  - Duplicate slice definitions — the same `pkg_slice` key declared in more than one file.
+  - Duplicate slices -- the same `pkg_slice` key declared in more than one file.
   - Missing copyright essential — a slice that doesn't reference `<pkg>_copyright` in its effective essentials (package-level or slice-level); the `copyright` slice itself is exempt.
   - Duplicate essential references — the same `pkg_slice` listed more than once in the same `essential:` block; diagnostics include `relatedInformation` pointing to the first occurrence.
 - **Quick fixes** (lightbulb / `Ctrl+.`) offer one-click corrections for unknown/invalid references, package name mismatches, a *Go to conflicting slice* action for path collisions, and *Add `<pkg>_copyright` to package essentials* for the missing-copyright diagnostic (inserts into the top-level `essential:` block, covering all slices at once; format matches the file's existing v1/v2 or v3 style).
@@ -130,9 +130,9 @@ The server loads all `slices/*.yaml` files from the workspace root into an in-me
 
 ---
 
-## Slice definition format
+## Package slices file format
 
-A slice definition file lives at `slices/<package>.yaml`.
+A package slices file lives at `slices/<package>.yaml`.
 
 **v1/v2 format** — `essential:` as a sequence:
 

@@ -118,7 +118,7 @@ func (s *Server) computeDiagnostics(filePath string) []protocol.Diagnostic {
 		}
 	}
 
-	// 5. Duplicate slice definitions: same pkg+name declared in two files.
+	// 5. Duplicate slices: same pkg+name declared in two files.
 	for _, dup := range analysis.DetectDuplicateSlices(s.idx) {
 		if dup.File1 == filePath {
 			diags = append(diags, protocol.Diagnostic{
@@ -142,7 +142,7 @@ func (s *Server) computeDiagnostics(filePath string) []protocol.Diagnostic {
 		}
 	}
 
-	// 6. Missing copyright essential in slice definitions.
+	// 6. Missing copyright essential in slices.
 	for _, d := range analysis.CheckCopyrightEssential(filePath, sf) {
 		diags = append(diags, protocol.Diagnostic{
 			Range:    toProtocolRange(d.Range),

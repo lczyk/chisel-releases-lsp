@@ -1,4 +1,4 @@
-// Package analysis provides static analysis passes over chisel slice definitions:
+// Package analysis provides static analysis passes over chisel package slices files:
 //   - Glob pattern validation for contents: paths
 //   - Slice collision detection (same concrete path in different packages)
 //   - Package name ↔ filename consistency

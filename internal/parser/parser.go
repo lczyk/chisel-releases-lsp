@@ -1,4 +1,4 @@
-// Package parser provides a position-aware parser for chisel slice definition files.
+// Package parser provides a position-aware parser for chisel package slices files.
 // It uses gopkg.in/yaml.v3 Node API to preserve line/column positions so that
 // the LSP server can map editor positions back to slice names, paths, etc.
 package parser
@@ -44,7 +44,7 @@ type EssentialRef struct {
 	ValueRange Range
 }
 
-// SliceFile is the fully parsed representation of a slice definitions file.
+// SliceFile is the fully parsed representation of a package slices file.
 type SliceFile struct {
 	Package      string
 	PackageRange Range
@@ -55,7 +55,7 @@ type SliceFile struct {
 	SliceOrder []string
 }
 
-// ParseFile reads and parses a chisel slice definitions YAML file.
+// ParseFile reads and parses a chisel package slices file.
 func ParseFile(path string) (*SliceFile, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
